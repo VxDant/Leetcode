@@ -1,0 +1,25 @@
+from typing import List
+
+# Here I am using a Hash Table to store the values which are processed 
+# The time complexity is o(n)
+
+# the iterated values (processed values ) are stored in buffer_dict 
+# if value is found in buffer_dict it returns the index of the same 
+# else it stores the new value in buffer_dict
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        buffer_dict = {}
+        
+        for x, element in enumerate(nums):
+            second = target - element
+            if second in buffer_dict:
+                return[buffer_dict[second], x]
+            else:
+                buffer_dict[element] = x
+        return
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    print(solution.twoSum([2, 7, 11, 15], 17))
